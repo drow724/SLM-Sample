@@ -36,9 +36,9 @@ public class XYcontroller {
 	}
 	
 	@GetMapping(produces = MediaType.TEXT_PLAIN_VALUE)
-	@RequestMapping("/new")
-	public String newString() {
-		return "new";
+	@RequestMapping("/list2")
+	public List<GeneralAgency> newString() {
+		return generalAgencyRepository.findAll();
 	}
 	
 	//소수점 표현 위도,경도를 DMS 표현으로 변환
