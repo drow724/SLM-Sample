@@ -35,12 +35,6 @@ public class XYcontroller {
 		return generalAgencyRepository.getGaList1(request.getNe(), request.getSw());
 	}
 	
-	@GetMapping
-	@RequestMapping("/list2")
-	public List<GeneralAgency> newString() {
-		return generalAgencyRepository.findAll();
-	}
-	
 	//소수점 표현 위도,경도를 DMS 표현으로 변환
 	public HashMap<String ,Object> getDmsByLatLon(Object data) throws Exception{
 	//data = 37.397
