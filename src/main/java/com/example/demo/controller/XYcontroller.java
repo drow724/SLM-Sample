@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.Request;
 import com.example.demo.model.GeneralAgency;
 import com.example.demo.repository.GeneralAgencyRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,9 +26,6 @@ public class XYcontroller {
 	@RequestMapping("/list")
 	public List<GeneralAgency> getList() throws Exception {
 		HashMap<String, Object> map = getDmsByLatLon("37.490515327316814");
-		for(String key : map.keySet()) {
-			System.out.println(map.get(key));
-		}
 		return generalAgencyRepository.findAll();
 	}
 
@@ -40,7 +35,7 @@ public class XYcontroller {
 		return generalAgencyRepository.getGaList1(request.getNe(), request.getSw());
 	}
 	
-	@GetMapping
+	@GetMapping(produces = MediaType.TEXT_PLAIN_VALUE)
 	@RequestMapping("/new")
 	public String newString() {
 		return "new";
