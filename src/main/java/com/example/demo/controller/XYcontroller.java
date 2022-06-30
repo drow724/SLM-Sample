@@ -35,7 +35,7 @@ public class XYcontroller {
 		return generalAgencyRepository.getGaList1(request.getNe(), request.getSw());
 	}
 	
-	@GetMapping(produces = MediaType.TEXT_PLAIN_VALUE)
+	@GetMapping
 	@RequestMapping("/list2")
 	public List<GeneralAgency> newString() {
 		return generalAgencyRepository.findAll();
